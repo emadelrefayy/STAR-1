@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function AdminTenantsPage() {
   const tenants = [
     { id: 1, name: "عيادة النور", modules: ["dental"], status: "نشط" },
@@ -8,6 +10,7 @@ export default function AdminTenantsPage() {
   return (
     <div style={{ padding: "40px" }}>
       <h1>العملاء (Tenants)</h1>
+      <Link href="/dashboard/admin/tenants/new">+ إضافة عميل جديد</Link>
       <table>
         <thead>
           <tr>
