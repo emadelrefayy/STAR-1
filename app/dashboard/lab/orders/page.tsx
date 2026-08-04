@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function LabOrdersPage() {
   const orders = [
     { id: 1, patient: "مريض تجريبي 1", test: "تحليل دم شامل", status: "قيد التحليل" },
@@ -7,6 +9,7 @@ export default function LabOrdersPage() {
   return (
     <div style={{ padding: "40px" }}>
       <h1>طلبات التحاليل</h1>
+      <Link href="/dashboard/lab/orders/new">+ طلب تحليل جديد</Link>
       <table>
         <thead>
           <tr>
