@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { getActiveModules } from "../../lib/modules";
 
 export default function DashboardHome() {
@@ -11,7 +12,9 @@ export default function DashboardHome() {
         <ul>
           {modules.flatMap((mod) =>
             mod.sidebarItems.map((item) => (
-              <li key={item.href}>{item.label}</li>
+              <li key={item.href}>
+                <Link href={item.href}>{item.label}</Link>
+              </li>
             ))
           )}
         </ul>
