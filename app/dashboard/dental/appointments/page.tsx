@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function DentalAppointmentsPage() {
   const appointments = [
     { id: 1, patient: "مريض تجريبي 1", time: "10:00 ص", doctor: "د. أحمد" },
@@ -7,6 +9,7 @@ export default function DentalAppointmentsPage() {
   return (
     <div style={{ padding: "40px" }}>
       <h1>مواعيد اليوم</h1>
+      <Link href="/dashboard/dental/appointments/new">+ حجز ميعاد جديد</Link>
       <table>
         <thead>
           <tr>
