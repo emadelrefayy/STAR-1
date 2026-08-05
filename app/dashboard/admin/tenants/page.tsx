@@ -5,9 +5,9 @@ import { useState } from "react";
 
 export default function AdminTenantsPage() {
   const tenants = [
-    { id: 1, name: "عيادة النور", modules: ["dental"], status: "نشط", payment: "مدفوع" },
-    { id: 2, name: "معمل الحياة", modules: ["lab"], status: "نشط", payment: "متأخر" },
-    { id: 3, name: "مجمع الشفاء", modules: ["dental", "lab"], status: "تجريبي", payment: "تجربة مجانية" },
+    { id: 1, name: "عيادة النور", modules: ["dental"], status: "نشط", payment: "مدفوع", renewalInDays: 25 },
+    { id: 2, name: "معمل الحياة", modules: ["lab"], status: "نشط", payment: "متأخر", renewalInDays: 3 },
+    { id: 3, name: "مجمع الشفاء", modules: ["dental", "lab"], status: "تجريبي", payment: "تجربة مجانية", renewalInDays: 5 },
   ];
 
   const paymentColor: Record<string, string> = {
@@ -43,6 +43,7 @@ export default function AdminTenantsPage() {
             <th>الموديولات المفعّلة</th>
             <th>الحالة</th>
             <th>حالة الدفع</th>
+            <th>التجديد</th>
           </tr>
         </thead>
         <tbody>
@@ -55,6 +56,15 @@ export default function AdminTenantsPage() {
                 <span style={{ color: paymentColor[t.payment], fontWeight: 500 }}>
                   ● {t.payment}
                 </span>
+              </td>
+              <td>
+                {t.renewalInDays <= 7 ? (
+                  <span style={{ color: "#C1443C", fontWeight: 500 }}>
+                    ⚠️ بعد {t.renewalInDays} يوم
+                  </span>
+                ) : (
+                  <span>بعد {t.renewalInDays} يوم</span>
+                )}
               </td>
             </tr>
           ))}
