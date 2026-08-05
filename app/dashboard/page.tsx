@@ -25,6 +25,10 @@ export default function DashboardHome() {
           </li>
         </ul>
       </nav>
+      <footer style={{ marginTop: "40px", display: "flex", alignItems: "center", gap: "8px", opacity: 0.5, fontSize: "12px" }}>
+        <img src="/logo.svg" alt="Moca AI" style={{ width: "18px", height: "18px" }} />
+        <span>Powered by Moca AI</span>
+      </footer>
     </div>
   );
 }
