@@ -18,6 +18,9 @@ export default function DashboardHome() {
             ))
           )}
           <li>
+            <Link href="/dashboard/dental/doctor">لوحة الدكتور (الأسنان)</Link>
+          </li>
+          <li>
             <Link href="/dashboard/lab/manager">لوحة المدير (المعمل)</Link>
           </li>
           <li>
