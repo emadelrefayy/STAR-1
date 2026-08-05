@@ -11,10 +11,12 @@ export default function DentalDoctorPage() {
 
       <section style={{ marginTop: "24px" }}>
         <h2>بحث عن مريض</h2>
-        <form>
-          <input type="text" placeholder="اسم المريض أو رقم الهاتف" style={{ width: "100%", maxWidth: "320px" }} />
-          <button type="submit">بحث</button>
-        </form>
+        <p style={{ fontSize: "13px", opacity: 0.6 }}>
+          (البحث الفعلي هيتفعّل لما نربط قاعدة البيانات — دلوقتي جرّب تفتح ملف مريض تجريبي)
+        </p>
+        <Link href="/dashboard/dental/doctor/patient">
+          فتح ملف مريض تجريبي ←
+        </Link>
       </section>
 
       <section style={{ marginTop: "32px" }}>
