@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { useState } from "react";
 
 export default function AdminTenantsPage() {
   const tenants = [
@@ -13,10 +16,26 @@ export default function AdminTenantsPage() {
     "تجربة مجانية": "#C97A2B",
   };
 
+  const [filter, setFilter] = useState("الكل");
+
+  const filteredTenants =
+    filter === "الكل" ? tenants : tenants.filter((t) => t.payment === filter);
+
   return (
     <div style={{ padding: "40px" }}>
       <h1>العملاء (Tenants)</h1>
       <Link href="/dashboard/admin/tenants/new">+ إضافة عميل جديد</Link>
+
+      <div style={{ margin: "16px 0" }}>
+        <label style={{ marginLeft: "8px" }}>فلترة حسب حالة الدفع:</label>
+        <select value={filter} onChange={(e) => setFilter(e.target.value)}>
+          <option value="الكل">الكل</option>
+          <option value="مدفوع">مدفوع</option>
+          <option value="متأخر">متأخر</option>
+          <option value="تجربة مجانية">تجربة مجانية</option>
+        </select>
+      </div>
+
       <table>
         <thead>
           <tr>
@@ -27,7 +46,7 @@ export default function AdminTenantsPage() {
           </tr>
         </thead>
         <tbody>
-          {tenants.map((t) => (
+          {filteredTenants.map((t) => (
             <tr key={t.id}>
               <td>{t.name}</td>
               <td>{t.modules.join(", ")}</td>
